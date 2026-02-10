@@ -202,20 +202,18 @@
                             <span class="badge">3 Kelompok</span>
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-circle"></i> Video</a><span class="badge"> 6 Kelompok</span>
+                            <a href=""><i class="fas fa-circle"></i> Video</a><span class="badge"> 6 Kelompok</span>
                         </li>
                         <li><div class="contact">
   <p>
     Instagram :
-    <a href="https://www.instagram.com/xulptwo.gallery?igsh=MTYyZXQwdGozNGgyZQ==" target="_blank">
-      @X - ULP 2
+ <a href="https://www.instagram.com/xulptwo.gallery?igsh=MTYyZXQwdGozNGgyZQ==" class="link-button social-link">@X-ULP2</a>
     </a>
   </p>
 
   <p>
     YouTube :
-    <a href="https://youtube.com/@xulp2-28?si=FFekiyTfk3sN7NWK" target="_blank">
-      @XULP2-28
+  <a href="https://youtube.com/@xulp2-28?si=-2CNHRXUpEubuRN2" class="link-button social-link">@XULP2-28</a>
     </a>
   </p>
 </div>
@@ -224,43 +222,5 @@
                     </ul>
                 </div>
             </div>
-    <script>
-        // Menambahkan interaksi sederhana pada menu
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuItems = document.querySelectorAll('.menu-content a');
-            
-            menuItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    // Mencegah navigasi sebenarnya (karena link hanya contoh)
-                    e.preventDefault();
-                    
-                    // Animasi klik sederhana
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 150);
-                    
-                    // Tampilkan pesan
-                    const itemText = this.textContent.trim();
-                    alert(`Anda mengklik: ${itemText}\n\nIni hanya contoh menu. Di implementasi nyata, ini akan mengarahkan ke halaman yang sesuai.`);
-                });
-            });
-            
-            // Efek hover untuk kartu menu
-            const menuCards = document.querySelectorAll('.menu-card');
-            menuCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    const icon = this.querySelector('.menu-header i');
-                    icon.style.transform = 'rotate(10deg) scale(1.1)';
-                    icon.style.transition = 'transform 0.3s ease';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    const icon = this.querySelector('.menu-header i');
-                    icon.style.transform = 'rotate(0deg) scale(1)';
-                });
-            });
-        });
-    </script>
 </body>
 </html>
