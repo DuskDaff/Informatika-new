@@ -8,218 +8,318 @@
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI, sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, sans-serif;
 }
 
 body{
-min-height:100vh;
-background:linear-gradient(135deg,#000,#444,#fff);
-display:flex;
-justify-content:center;
-align-items:center;
-color:#222;
-position:relative;
-overflow:hidden;
+  min-height:100vh;
+  background: linear-gradient(135deg, #F3E5AB, #A8C0D4, #001F3F);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#222;
+  position:relative;
+  overflow:hidden;
+}
+
+/* BACKGROUND IMAGE DECOR */
+.bg-decor{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+
+.bg-decor img{
+  position:absolute;
+  width:150px;
+  opacity:0.05; /* rendah supaya tidak mencolok */
+  filter: brightness(0.8);
+}
+
+.bg-decor img:nth-child(1){
+  top:10%;
+  left:15%;
+  transform:rotate(-15deg);
+}
+
+.bg-decor img:nth-child(2){
+  bottom:20%;
+  right:10%;
+  transform:rotate(25deg);
 }
 
 /* SOCIAL TOP RIGHT */
 .top-social{
-position:absolute;
-top:20px;
-right:30px;
-font-size:.9rem;
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:.9rem;
 }
 
 .top-social a{
-text-decoration:none;
-color:white;
-opacity:.9;
-transition:.2s;
+  text-decoration:none;
+  color:white;
+  opacity:.9;
+  transition:.2s;
 }
 
 .top-social a:hover{
-opacity:1;
+  opacity:1;
 }
 
 /* CONTAINER */
 .container{
-width:95%;
-max-width:1100px;
-z-index:2;
+  width:95%;
+  max-width:1100px;
+  z-index:2;
 }
 
 header{
-text-align:center;
-padding:35px 20px;
-background:rgba(255,255,255,0.9);
-border-radius:14px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-margin-bottom:40px;
+  text-align:center;
+  padding:35px 20px;
+  background:rgba(255,255,255,0.9);
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  margin-bottom:40px;
 }
 
 h1{
-font-size:2.3rem;
-color:#111;
-margin-bottom:10px;
+  font-size:2.3rem;
+  color:#111;
+  margin-bottom:10px;
 }
 
 .subtitle{
-color:#555;
-font-size:1rem;
+  color:#555;
+  font-size:1rem;
 }
 
 .menu-container{
-display:flex;
-justify-content:center;
+  display:flex;
+  justify-content:center;
 }
 
 .menu-card{
-width:380px;
-background:rgba(255,255,255,0.92);
-backdrop-filter:blur(6px);
-border-radius:16px;
-box-shadow:0 15px 35px rgba(0,0,0,0.25);
-transition:.3s;
+  width:380px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(6px);
+  border-radius:16px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.25);
+  transition:.3s;
 }
 
 .menu-card:hover{
-transform:translateY(-6px);
+  transform:translateY(-6px);
 }
 
 .menu-header{
-padding:22px;
-border-bottom:1px solid #ddd;
-font-size:1.3rem;
-font-weight:600;
-color:#222;
-display:flex;
-align-items:center;
-gap:12px;
+  padding:22px;
+  border-bottom:1px solid #ddd;
+  font-size:1.3rem;
+  font-weight:600;
+  color:#222;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
 .menu-content{
-padding:20px;
+  padding:20px;
 }
 
 .menu-content ul{
-list-style:none;
+  list-style:none;
 }
 
 .menu-content li{
-padding:12px 0;
-border-bottom:1px solid #eee;
-display:flex;
-justify-content:space-between;
-align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .menu-content li:last-child{
-border:none;
+  border:none;
 }
 
 .menu-content a{
-text-decoration:none;
-color:#333;
-transition:.2s;
+  text-decoration:none;
+  color:#333;
+  transition:.2s;
 }
 
 .menu-content a:hover{
-color:black;
-font-weight:600;
+  color:black;
+  font-weight:600;
 }
 
 .badge{
-background:#111;
-color:#fff;
-padding:3px 10px;
-border-radius:20px;
-font-size:.75rem;
+  background:#111;
+  color:#fff;
+  padding:3px 10px;
+  border-radius:20px;
+  font-size:.75rem;
 }
 
 /* DEKORASI ICON KIRI */
 .side-left{
-position:absolute;
-left:40px;
-top:50%;
-transform:translateY(-50%);
-display:flex;
-flex-direction:column;
-gap:30px;
-font-size:2rem;
-color:white;
-opacity:.15;
+  position:absolute;
+  left:40px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  font-size:2rem;
+  color:white;
+  opacity:.15;
 }
 
 /* DEKORASI ICON KANAN */
 .side-right{
-position:absolute;
-right:40px;
-top:50%;
-transform:translateY(-50%);
-display:flex;
-flex-direction:column;
-gap:30px;
-font-size:2rem;
-color:white;
-opacity:.15;
+  position:absolute;
+  right:40px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  font-size:2rem;
+  color:white;
+  opacity:.15;
 }
 
 /* BACKGROUND TEXT BESAR */
 .bg-text{
-position:absolute;
-font-size:9rem;
-font-weight:900;
-color:white;
-opacity:.04;
-white-space:nowrap;
-z-index:1;
+  position:absolute;
+  font-size:9rem;
+  font-weight:900;
+  color:white;
+  opacity:.04;
+  white-space:nowrap;
+  z-index:1;
 }
 
 .bg-left{
-left:-50px;
-top:20%;
-transform:rotate(-90deg);
+  left:-50px;
+  top:20%;
+  transform:rotate(-90deg);
 }
 
 .bg-right{
-right:-50px;
-bottom:20%;
-transform:rotate(90deg);
+  right:-50px;
+  bottom:20%;
+  transform:rotate(90deg);
 }
 
 /* BULATAN ABSTRAK */
 .circle{
-position:absolute;
-border-radius:50%;
-background:white;
-opacity:.05;
-z-index:1;
+  position:absolute;
+  border-radius:50%;
+  background:white;
+  opacity:.05;
+  z-index:1;
 }
 
 .circle1{
-width:300px;
-height:300px;
-top:-100px;
-left:-100px;
+  width:300px;
+  height:300px;
+  top:-100px;
+  left:-100px;
 }
 
 .circle2{
-width:250px;
-height:250px;
-bottom:-120px;
-right:-120px;
+  width:250px;
+  height:250px;
+  bottom:-120px;
+  right:-120px;
+}
+
+/* BULATAN DEKOR TAMBAHAN */
+.circle3{
+  width:120px;
+  height:120px;
+  top:10%;
+  right:20%;
+  opacity:.03;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  z-index:1;
+}
+
+.circle4{
+  width:80px;
+  height:80px;
+  bottom:25%;
+  left:15%;
+  opacity:.02;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  z-index:1;
+}
+
+.circle5{
+  width:150px;
+  height:150px;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  opacity:.015;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  z-index:1;
+}
+
+/* ICON FLOATING */
+.floating-icons{
+  position:absolute;
+  top:30%;
+  left:20%;
+  display:flex;
+  gap:50px;
+  font-size:3rem;
+  color:white;
+  opacity:.03;
+  z-index:1;
+  pointer-events:none;
 }
 </style>
 </head>
 
 <body>
 
+<!-- BACKGROUND IMAGE DECOR -->
+<div class="bg-decor">
+  <img src="https://cdn-icons-png.flaticon.com/512/1086/1086933.png" alt="decor" />
+  <img src="https://cdn-icons-png.flaticon.com/512/1086/1086943.png" alt="decor" />
+</div>
+
 <!-- BULATAN DEKOR -->
 <div class="circle circle1"></div>
 <div class="circle circle2"></div>
+<div class="circle circle3"></div>
+<div class="circle circle4"></div>
+<div class="circle circle5"></div>
+
+<!-- ICON FLOATING -->
+<div class="floating-icons">
+  <i class="fas fa-microphone"></i>
+  <i class="fas fa-video"></i>
+  <i class="fas fa-headphones"></i>
+  <i class="fas fa-film"></i>
+</div>
 
 <!-- BACKGROUND TEXT -->
 <div class="bg-text bg-left">INFORMATIKA</div>
@@ -227,66 +327,66 @@ right:-120px;
 
 <!-- DEKORASI KIRI -->
 <div class="side-left">
-<i class="fas fa-microphone"></i>
-<i class="fas fa-headphones"></i>
-<i class="fas fa-video"></i>
-<i class="fas fa-film"></i>
-<i class="fas fa-laptop-code"></i>
-<i class="fas fa-photo-video"></i>
+  <i class="fas fa-microphone"></i>
+  <i class="fas fa-headphones"></i>
+  <i class="fas fa-video"></i>
+  <i class="fas fa-film"></i>
+  <i class="fas fa-laptop-code"></i>
+  <i class="fas fa-photo-video"></i>
 </div>
 
 <!-- DEKORASI KANAN -->
 <div class="side-right">
-<i class="fas fa-chart-line"></i>
-<i class="fas fa-podcast"></i>
-<i class="fas fa-camera"></i>
-<i class="fas fa-play-circle"></i>
-<i class="fas fa-broadcast-tower"></i>
-<i class="fas fa-compact-disc"></i>
+  <i class="fas fa-chart-line"></i>
+  <i class="fas fa-podcast"></i>
+  <i class="fas fa-camera"></i>
+  <i class="fas fa-play-circle"></i>
+  <i class="fas fa-broadcast-tower"></i>
+  <i class="fas fa-compact-disc"></i>
 </div>
 
 <!-- SOCIAL -->
 <div class="top-social">
-<a href="https://www.instagram.com/xulptwo.gallery?igsh=MTYyZXQwdGozNGgyZQ==">
-<i class="fab fa-instagram"></i> Instagram
-&nbsp; | &nbsp;
-</a>
-<a href="https://youtube.com/@xulp2-28?si=-2CNHRXUpEubuRN2">
-<i class="fab fa-youtube"></i> YouTube
-</a>
+  <a href="https://www.instagram.com/xulptwo.gallery?igsh=MTYyZXQwdGozNGgyZQ==">
+    <i class="fab fa-instagram"></i> Instagram
+    &nbsp; | &nbsp;
+  </a>
+  <a href="https://youtube.com/@xulp2-28?si=-2CNHRXUpEubuRN2">
+    <i class="fab fa-youtube"></i> YouTube
+  </a>
 </div>
 
 <div class="container">
 
 <header>
-<h1><i class="fas fa-bars"></i> Project Informatika Podcast & Video</h1>
-<p class="subtitle">Pengumpulan Tugas Informatika Kelas X ULP 2 Semester 2</p>
+  <h1><i class="fas fa-bars"></i> Project Informatika Podcast & Video</h1>
+  <p class="subtitle">Pengumpulan Tugas Informatika Kelas X ULP 2 Semester 2</p>
 </header>
 
 <div class="menu-container">
-<div class="menu-card">
+  <div class="menu-card">
 
-<div class="menu-header">
-<i class="fas fa-chart-line"></i> Podcast & Video
-</div>
+    <div class="menu-header">
+      <i class="fas fa-chart-line"></i> Podcast & Video
+    </div>
 
-<div class="menu-content">
-<ul>
+    <div class="menu-content">
+      <ul>
 
-<li>
-<a href="#"><i class="fas fa-circle"></i> Podcast</a>
-<span class="badge">3 Kelompok</span>
-</li>
+        <li>
+          <a href="#"><i class="fas fa-circle"></i> Podcast</a>
+          <span class="badge">3 Kelompok</span>
+        </li>
 
-<li>
-<a href="#"><i class="fas fa-circle"></i> Video</a>
-<span class="badge">6 Kelompok</span>
-</li>
+        <li>
+          <a href="#"><i class="fas fa-circle"></i> Video</a>
+          <span class="badge">6 Kelompok</span>
+        </li>
 
-</ul>
-</div>
+      </ul>
+    </div>
 
-</div>
+  </div>
 </div>
 
 </div>
